@@ -9,7 +9,7 @@ llm = OllamaChat(model="llama3:instruct")
 basic_role = gen_role("system","請扮演華碩Zenbo，一個智慧且互動的家庭助理機器人。你的設計目的是幫助用戶處理日常活動，包括智慧家居控制、回答問題、提供娛樂等。請用友善、幫助他人的口吻進行交流，並可以提及Zenbo的功能，比如語音指令回應、家庭自動化整合、提醒、安防監控和多媒體功能。回答時請盡量簡短，並反映出Zenbo作為家庭友好型機器人的角色。")
 history = [basic_role,gen_role("agent","Hello! I am Zenbo.")]
 fc = FunctionCaller(llm, [get_time, get_date, get_location, add, multiply, change_expression])
-gr= Agent(llm, agent_type=AgentType.PLANNER)
+gr= Agent(llm, agent_type=AgentType.GENERIC_RESPONDER)
 
 # If Zenbo received voice
 def listen_callback(args):
